@@ -1,0 +1,10 @@
+# This will add all files including temp files,
+# logs, and docs which we may not need.
+
+FROM ubuntu
+COPY . .
+
+# This will only add specific directories we need
+# to run our application.
+
+COPY app lib .

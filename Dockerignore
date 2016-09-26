@@ -1,0 +1,18 @@
+# If we know what file types we care about,
+# we can filter it even further using a Dockerigore,
+# or just add directories we know will never be
+# added to a Dockerfile.
+
+log
+tmp
+
+# We may want to add docs to a certain container
+*.swp #ignore all swap files from vim
+
+# The .dockerignore file is considered global
+# for that build context folder, however you
+# can use specific ones by setting the -i flag
+# when building an image and use custom ones to
+# strip your container images down even further
+# for different purposes, e.g don't add test
+# files to a production image.

@@ -1,0 +1,8 @@
+RUN wget -qO docker.sh https://get.docker.com
+RUN chmod +x docker.sh
+RUN ./docker.sh
+RUN rm docker.sh
+
+# Combine so that no layers which are not independently useful exist
+# Artifacts should be removed before a layer boundary
+RUN wget -qO- https://get.docker.com | sh

@@ -1,0 +1,8 @@
+FROM ubuntu
+
+## Separate commands
+RUN apt-get update
+RUN apt-get install -y nginx
+
+# Single layer
+RUN apt-get update && apt-get install -y nginx && rm -rf /var/lib/apt/lists/*

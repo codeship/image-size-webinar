@@ -1,0 +1,20 @@
+FROM ubuntu
+
+ADD mybin .
+ENTRYPOINT ["mybin"]
+
+# We're not using any core Ubunutu features like
+# package management, shells, etc. We could strip
+# this down to alpine, or even a scratch container if
+# we depend very little on the underlying OS. If
+# we are using a subset of what Ubuntu provides we
+# could tweak it to be somewhere in the middle by
+# building on one of the smaller stripped down images
+# to make something somewhere in the middle.
+# Below is the same container, functionally, but
+# greatly reduced in size.
+
+FROM alpine
+
+ADD mybin .
+ENTRYPOINT ["mybin"]
